@@ -44,3 +44,4 @@ tzlocal==4.2
 xlsx2csv==0.8.1
 xmltodict==0.13.0
 zenpy==2.0.25
+arcgis==2.2.0.2
