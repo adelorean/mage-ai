@@ -53,7 +53,7 @@ RUN if [ -z "$FEATURE_BRANCH" ] || [ "$FEATURE_BRANCH" = "null" ] ; then \
       VERSION=$(echo "$tag" | tr -d "'") && \
       pip3 install --no-cache-dir "mage-ai[all]==$VERSION"; \
     else \
-      pip3 install --no-cache-dir "git+https://github.com/mage-ai/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]"; \
+      pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]"; \
     fi
 
 
