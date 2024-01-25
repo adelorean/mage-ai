@@ -52,7 +52,6 @@ aws-secretsmanager-caching==1.1.1.5
 boto3==1.26.60
 botocore==1.29.60
 chromadb>=0.4.17
-clickhouse-connect~=0.6.23
 db-dtypes==1.0.5
 duckdb==0.9.1
 google-api-core~=2.15.0
