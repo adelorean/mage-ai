@@ -11,13 +11,13 @@ RUN \
   curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
   apt-get -y update && \
   ACCEPT_EULA=Y apt-get -y install --no-install-recommends \
-    # NFS dependencies
-    nfs-common \
-    # odbc dependencies
-    msodbcsql18\
-    unixodbc-dev \
-    # R
-    r-base && \
+  # NFS dependencies
+  nfs-common \
+  # odbc dependencies
+  msodbcsql18\
+  unixodbc-dev \
+  # R
+  r-base && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
@@ -48,14 +48,15 @@ RUN \
 
 # Mage
 COPY ./mage_ai/server/constants.py /tmp/constants.py
-RUN if [ -z "$FEATURE_BRANCH" ] || [ "$FEATURE_BRANCH" = "null" ] ; then \
-      tag=$(tail -n 1 /tmp/constants.py) && \
-      VERSION=$(echo "$tag" | tr -d "'") && \
-      pip3 install --no-cache-dir "mage-ai[all]==$VERSION"; \
-    else \
-      pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]"; \
-    fi
-
+# RUN if [ -z "$FEATURE_BRANCH" ] || [ "$FEATURE_BRANCH" = "null" ] ; then \
+#       tag=$(tail -n 1 /tmp/constants.py) && \
+#       VERSION=$(echo "$tag" | tr -d "'") && \
+#       pip3 install --no-cache-dir "mage-ai[all]==$VERSION"; \
+#     else \
+#       pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]"; \
+#     fi
+RUN \
+  pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]";
 
 ## Startup Script
 COPY --chmod=+x ./scripts/install_other_dependencies.py ./scripts/run_app.sh /app/
