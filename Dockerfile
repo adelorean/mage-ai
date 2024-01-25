@@ -56,7 +56,7 @@ COPY ./mage_ai/server/constants.py /tmp/constants.py
 #       pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]"; \
 #     fi
 RUN \
-  pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git@$FEATURE_BRANCH#egg=mage-ai[all]";
+  pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git";
 
 ## Startup Script
 COPY --chmod=+x ./scripts/install_other_dependencies.py ./scripts/run_app.sh /app/
