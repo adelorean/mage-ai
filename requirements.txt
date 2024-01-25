@@ -83,7 +83,3 @@ snowflake-connector-python==3.2.1
 sshtunnel==0.4.0
 tables==3.7.0
 trino~=0.326
-
-#custom
-arcgis==2.2.0.2
-
