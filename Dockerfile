@@ -59,7 +59,7 @@ RUN \
   pip3 install --no-cache-dir "git+https://github.com/adelorean/mage-ai.git";
 
 ## Startup Script
-COPY --chmod=+x ./scripts/install_other_dependencies.py ./scripts/run_app.sh /app/
+COPY ./scripts/install_other_dependencies.py ./scripts/run_app.sh /app/
 
 ENV MAGE_DATA_DIR="/home/src/mage_data"
 ENV PYTHONPATH="${PYTHONPATH}:/home/src"
